@@ -13,6 +13,7 @@ logger = logging.getLogger(__name__)
 
 class ShoppingCartPage(BasePage):
     def __init__(self, page: Page):
+        self.PAGE_URL = r'https://www.saucedemo.com/v1/cart.html'
         super().__init__(page)
         self.shopping_cart_list = self.page.locator('.cart_list')
 
@@ -33,3 +34,9 @@ class ShoppingCartPage(BasePage):
                 return True
         else:
             raise AssertionError(f"Couldn't find product {product} in the shopping cart")
+
+    def click_on_checkout_button(self) -> CheckoutPageOne:
+        checkout_button = self.page.locator('.checkout_button')
+        checkout_button.click()
+        from pages.checkout_page_one import CheckoutPageOne
+        return CheckoutPageOne(self.page)

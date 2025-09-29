@@ -1,3 +1,6 @@
+# Description
+Some dummy tests implemented with Playwright and pytest.
+
 ## Installation Guide
 
 ```shell

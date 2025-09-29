@@ -45,7 +45,7 @@ def login_page(browser) -> Generator[LoginPage, Any, None]:
 def credentials():
     # The credentials should be environment variables and kept in secret.
     # This is just for demonstration purposes
-    with open('data/credentials.yaml', 'r') as f:
+    with open('data/user_data.yaml', 'r') as f:
         credentials = yaml.safe_load(f)
     yield credentials
 
@@ -53,8 +53,11 @@ def credentials():
 @pytest.fixture(scope='session')
 def main_user(credentials) -> Generator[User, Any, None]:
     main_user = User(
-        credentials['main_user']['username'],
-        credentials['main_user']['password']
+        str(credentials['main_user']['username']),
+        str(credentials['main_user']['password']),
+        str(credentials['main_user']['first_name']),
+        str(credentials['main_user']['last_name']),
+        str(credentials['main_user']['zip_code'])
     )
     yield main_user
 
@@ -62,7 +65,7 @@ def main_user(credentials) -> Generator[User, Any, None]:
 @pytest.fixture(scope='session')
 def incorrect_user(credentials) -> Generator[User, Any, None]:
     incorrect_user = User(
-        credentials['incorrect_user']['username'],
-        credentials['incorrect_user']['password']
+        str(credentials['incorrect_user']['username']),
+        str(credentials['incorrect_user']['password'])
     )
     yield incorrect_user

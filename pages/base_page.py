@@ -15,6 +15,7 @@ class BasePage(ABC):
 
     def __init__(self, page: Page):
         self.page = page
+        self.wait_until_loaded()
 
     def __str__(self):
         return f'<{self.__class__.__name__}, {self.PAGE_URL}>'
@@ -26,7 +27,6 @@ class BasePage(ABC):
 
     def wait_until_loaded(self):
         logger.info(f'Waiting for page {self} to load')
-        self.page.wait_for_url(self.PAGE_URL)
         self.page.wait_for_load_state()
         logger.info(f'Page {self} has loaded')
 
