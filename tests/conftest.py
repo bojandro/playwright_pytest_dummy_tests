@@ -1,4 +1,5 @@
 import logging
+import os
 from datetime import datetime
 from typing import Any, Generator
 
@@ -12,6 +13,7 @@ from pages.login_page import LoginPage
 
 @pytest.fixture(scope='session', autouse=True)
 def configure_logging():
+    os.makedirs('run_artifacts', exist_ok=True)
     timestamp = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
     logging.basicConfig(
         level=logging.INFO,
