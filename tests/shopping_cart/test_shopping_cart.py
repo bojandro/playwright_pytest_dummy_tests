@@ -6,7 +6,7 @@ from pages.login_page import LoginPage
 
 @pytest.mark.shopping_cart
 class TestShoppingCart:
-    def test_add_to_shopping_cart(
+    def test_place_order(
         self,
         login_page: LoginPage,
         main_user: User

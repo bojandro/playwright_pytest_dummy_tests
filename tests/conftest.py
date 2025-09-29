@@ -32,6 +32,7 @@ def browser() -> Generator[Browser, Any, None]:
         yield browser
         browser.close()
 
+
 @pytest.fixture(scope='function')
 def login_page(browser) -> Generator[LoginPage, Any, None]:
     page = browser.new_page()

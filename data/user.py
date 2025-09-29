@@ -6,9 +6,9 @@ class User:
         self,
         username: str,
         password: str,
-        first_name: Optional[str] = '',
-        last_name: Optional[str] = '',
-        zip_code: Optional[str] = ''
+        first_name: Optional[str]='',
+        last_name: Optional[str]='',
+        zip_code: Optional[str]=''
     ):
         self.username = username
         self.password = password
