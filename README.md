@@ -31,4 +31,4 @@ Serve test report
 allure serve run_artifacts/allure_results
 ```
 
-Report should be available at `http://127.0.0.1:40939`.
+Report should be available at `http://127.0.0.1:*`.
