@@ -19,5 +19,5 @@ class TestLogin:
         login_page: LoginPage,
         incorrect_user: User
     ):
-        login_page.login(incorrect_user)
+        login_page.login(incorrect_user, expect_success=False)
         login_page.check_login_unsuccessful()
